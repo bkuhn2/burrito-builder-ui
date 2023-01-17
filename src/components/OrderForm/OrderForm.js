@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const OrderForm = () => {
+const OrderForm = ({addOrder}) => {
 
   const [name, setName] = useState('');
   const [ingredients, setIngredients] = useState([]);
@@ -10,6 +10,11 @@ const OrderForm = () => {
 
     if (name && ingredients.length > 0) {
       // console.log('conditional if name, inglegth');
+      const newOrder = {
+        name: name,
+        ingredients: ingredients
+      }
+      addOrder(newOrder);
       clearInputs();
     }
   }
