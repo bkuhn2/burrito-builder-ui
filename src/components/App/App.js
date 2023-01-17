@@ -1,20 +1,24 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import {getOrders} from '../../apiCalls';
 import Orders from '../../components/Orders/Orders';
 import OrderForm from '../../components/OrderForm/OrderForm';
 
-class App extends Component {
-  constructor(props) {
-    super();
-  }
+const App = () => {
 
-  componentDidMount() {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
     getOrders()
       .catch(err => console.error('Error fetching:', err));
-  }
+  }, [])
 
-  render() {
+  // componentDidMount() {
+  //   getOrders()
+  //     .catch(err => console.error('Error fetching:', err));
+  // }
+
+  
     return (
       <main className="App">
         <header>
@@ -22,10 +26,9 @@ class App extends Component {
           <OrderForm />
         </header>
 
-        <Orders orders={this.state.orders}/>
+        <Orders orders={orders}/>
       </main>
     );
-  }
 }
 
 
