@@ -10,6 +10,10 @@ const App = () => {
 
   useEffect(() => {
     getOrders()
+      .then(data => {
+        // console.log('get orders data: ', data.orders);
+        setOrders(data.orders);
+      })
       .catch(err => console.error('Error fetching:', err));
   }, [])
 
