@@ -51,9 +51,18 @@ describe('BURRITO PAGE TESTS', () => {
   })
 
   it('When a user fills out the form, the information is reflected in the input fields value', () => {
-    cy.get('input').should('have.value', '')
-    cy.get('input').type('Brett')
-    cy.get('input').should('have.value', 'Brett')
+    cy.get('input')
+      .should('have.value', '')
+      .type('Brett')
+      .should('have.value', 'Brett')
+  })
+
+  it('User should be able to add ingredients to their order', () => {
+    cy.get('p').first().should('have.text', 'Order: Nothing selected');
+    cy.get('button').first().click()
+      .next().click()
+      .next().click()
+    cy.get('p').first().should('have.text', 'Order: beans, steak, carnitas');
   })
 
 })
