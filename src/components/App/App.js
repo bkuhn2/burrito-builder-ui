@@ -11,7 +11,6 @@ const App = () => {
   useEffect(() => {
     getOrders()
       .then(data => {
-        // console.log('get orders data: ', data.orders);
         setOrders(data.orders);
       })
       .catch(err => console.error('Error fetching:', err));
@@ -20,7 +19,6 @@ const App = () => {
   const addOrder = (order) => {
     sendOrder(order)
       .then(data => {
-        console.log('addOrder post data: ', data);
         setOrders([...orders, data]);
       })
       .catch(err => console.error('Error POSTING:', err));

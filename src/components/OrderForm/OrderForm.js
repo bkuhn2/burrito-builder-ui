@@ -9,7 +9,6 @@ const OrderForm = ({addOrder}) => {
     event.preventDefault();
 
     if (name && ingredients.length > 0) {
-      // console.log('conditional if name, inglegth');
       const newOrder = {
         name: name,
         ingredients: ingredients

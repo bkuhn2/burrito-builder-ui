@@ -9,5 +9,11 @@ export const sendOrder = (order) => {
     headers: {'Content-type': 'application/json'},
     body: JSON.stringify(order)
   })
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('bad response')
+      }
+    })
 }
