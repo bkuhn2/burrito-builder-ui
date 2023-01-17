@@ -42,7 +42,7 @@ const OrderForm = ({addOrder}) => {
     });
 
   return (
-    <form>
+    <form className='input-form'>
       <input
         type='text'
         placeholder='Name'
